@@ -1,0 +1,18 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+</head>
+<body ng-app="feed">
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<title>Teste</title>
+	<h1>Teste</h1>
+	<div ng-controller="feedItem">
+		<div ng-repeat="item in items">
+			<div> {{ item.name }} </div>
+			<div> {{ item.size }} </div>
+			<div> {{ item.value }} </div>
+		</div>
+	</div>
+</body>
+</html>
