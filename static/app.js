@@ -4,7 +4,6 @@ var app = angular.module('feed', []);
 
 app.controller('feedItem', function ($http, $scope, $timeout) {
 
-
 	$scope.items = [];
 
 	(function updateList() {
