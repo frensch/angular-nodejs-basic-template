@@ -32,9 +32,6 @@ app.directive('itemPosition', function () {
 		templateUrl: "item-position.html",
 		scope: {itemPositionData: '='},
 		controllerAs: "itemPositionCtrl",
-		controller: function ($http, $scope, $timeout) {
-			this.teste='teste';
-		},
 		link: function (scope) {
 			this.itemPositionData = scope.itemPositionData;
 		}
