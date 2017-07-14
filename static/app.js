@@ -25,4 +25,20 @@ app.directive('feedItems', function () {
 	};
 });
 
+
+app.directive('itemPosition', function () {
+	return {
+		restrict: "E",
+		templateUrl: "item-position.html",
+		scope: {itemPositionData: '='},
+		controllerAs: "itemPositionCtrl",
+		controller: function ($http, $scope, $timeout) {
+			this.teste='teste';
+		},
+		link: function (scope) {
+			this.itemPositionData = scope.itemPositionData;
+		}
+	};
+});
+
 }) ();
