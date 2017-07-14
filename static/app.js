@@ -2,20 +2,27 @@
 
 var app = angular.module('feed', []);
 
-app.controller('feedItem', function ($http, $scope, $timeout) {
-
-	$scope.items = [];
-
-	(function updateList() {
-		$http.get('/items').then(function (response) {
+function updateList($http, feedItemsCtrl, $timeout) {
+	$http.get('/items').then(function (response) {
 		console.log(response.data);
-		$scope.items = response.data;
+		feedItemsCtrl.items = response.data;
 
-		$timeout(updateList, 1000);
+		$timeout(updateList.bind(null, $http, feedItemsCtrl, $timeout), 1000);
+
 	});
+};
 
-	})();
+app.directive('feedItems', function () {
+	return {
+		restrict: "E",
+		templateUrl: "feed-items.html",
+		controllerAs: "feedItemsCtrl",
+		controller: function ($http, $scope, $timeout) {
+			this.items = [];
 
+			updateList($http, this, $timeout);
+		}
+	};
 });
 
 }) ();

@@ -1,0 +1,13 @@
+<div ng-repeat="item in feedItemsCtrl.items" class="item">
+	<h1> {{ item.action }} </h1>
+	<div ng-repeat="itemPosition in item.positions" class="itemPosition">
+		<div>{{ $index + 1}}º</div>
+		<div class="subitem"> 
+			<p class="value"> {{ itemPosition.value }} </p>
+			<p class="name"> {{ itemPosition.name }} </p>
+		</div>
+		<div class="subitem"> 
+			<img ng-src="{{itemPosition.thumbnail}}"/>
+		</div>
+	</div>
+</div>
